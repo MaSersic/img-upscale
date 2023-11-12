@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Photo Upscale App</title>
+    </head>
+    <body>
+        <h1>Photo Upscale App</h1>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="file" name="photo" />
+            <input type="submit" value="Upload" />
+        </form>
+
+        <h2>Downloaded Pictures:</h2>
+        <ul>
+            {% for photo in pictures %}
+                <li>
+                    <a href="{{ photo.url }}">{{ photo.name }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </body>
+</html>
